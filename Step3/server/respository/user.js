@@ -42,7 +42,19 @@ async function getUserSearch(username_text, password_text) {
 
 }
 
-async function postUser(p_title, p_genre, p_director, p_release_year) {
+async function postUser(
+                        p_gender,
+                        p_name_title ,
+                        p_name_first,
+                        p_name_last,
+                        p_country,
+                        p_email,
+                        p_username,
+                        p_password ,
+                        p_picture_large,
+                        p_picture_medium,
+                        p_picture_thumbnail)
+ {
 
     var Query;
     var pool = mysql.createPool(config);
@@ -52,10 +64,17 @@ async function postUser(p_title, p_genre, p_director, p_release_year) {
         //Query = `SELECT * FROM Users WHERE title LIKE '%${search_text}%'`;
 
         var post = {
-            title: p_title,
-            genre: p_genre,
-            director: p_director,
-            release_year: p_release_year
+            gender: p_gender,
+            name_title: p_name_title ,
+            name_first: p_name_first,
+            name_last: p_name_last,
+            country: p_country,
+            email: p_email,
+            username: p_username,
+            password: p_password ,
+            picture_large: p_picture_large,
+            picture_medium: p_picture_medium,
+            picture_thumbnail: p_picture_thumbnail
         };
 
         console.log('post is: ', post);
