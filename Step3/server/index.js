@@ -238,6 +238,64 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'POST',
+        path: '/api/user/insert',
+        config: {
+            payload: {
+                multipart: true,
+            },
+            cors: {
+                origin: ['*'],
+                additionalHeaders: ['cache-control', 'x-requested-width'],
+                credentials: true
+            }
+        },
+        handler: async function (request, reply) {
+
+            const {
+                gender,
+                name_title ,
+                name_first,
+                name_last,
+                country,
+                email,
+                username,
+                password ,
+                picture_large,
+                picture_medium,
+                picture_thumbnail
+            } = request.payload;
+
+            console.log("request.payload: " + JSON.stringify(request.payload));
+
+            try {
+
+                const responsedata = await Users.UserRepo.postUser( gender,
+                                                                    name_title ,
+                                                                    name_first,
+                                                                    name_last,
+                                                                    country,
+                                                                    email,
+                                                                    username,
+                                                                    password ,
+                                                                    picture_large,
+                                                                    picture_medium,
+                                                                    picture_thumbnail);
+
+                if (responsedata.error) {
+                    return responsedata;
+                } else {
+                    return responsedata;
+                }
+
+            } catch (err) {
+                server.log(["error", "home"], err);
+                return err;
+            }
+
+        }
+    });
 
     await server.start();
     console.log('API Server running on %s', server.info.uri);

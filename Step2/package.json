@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --watch",
+    "start": "webpack-dev-server --content-base src --hot --inline",
     "start-server": "nodemon server/index.js"
   },
   "keywords": [],
@@ -29,5 +29,8 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "webpack-hot-middleware": "^2.26.1"
   }
 }

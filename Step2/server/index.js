@@ -16,7 +16,7 @@ app.get('/users', (req, res) => {
     axios.get('https://randomuser.me/api/?page=1&results=10')
         .then(response => {
             res.send(response.data);
-         });
+        });
 });
 
 // Section 4
