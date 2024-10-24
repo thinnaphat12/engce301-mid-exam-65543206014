@@ -5,7 +5,7 @@ var dbconfig = {
         port: '3306',
         user: 'root',
         password: '',
-        database: 'moviedb'
+        database: 'term_project_db'
     },
     production: {
         //connectionLimit : 10,
