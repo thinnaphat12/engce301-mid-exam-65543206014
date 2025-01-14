@@ -21,7 +21,7 @@ export async function login({ email, password }) {
 }
 
 export async function searchArtworks({ keyword }) {
-
+  
   return await fetch(`${apiURL}/api/homepage/getArtworks/${keyword}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
