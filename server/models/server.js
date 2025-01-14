@@ -2,10 +2,17 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
+
+require('dotenv').config();
+
+console.log(process.env.APP_NAME);
+console.log(process.env.API_URL); 
+console.log(process.env.PORT); 
+
 class Server {
   constructor() {
     this.app = express();
-    this.port = process.env.PORT || 8081;
+    this.port = process.env.PORT || 8080;
     this.paths = {
       auth: "/api/auth",
       homepage: "/api/homepage",
