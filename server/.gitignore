@@ -10,6 +10,8 @@
 
 # production
 /build
+server.key
+server.crt
 
 # misc
 .DS_Store
